@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Video</title>
+	  <style>
+div#video_player_box{  background:#000; margin:10px auto;}
+div#video_controls_bar{ position: relative;background: #333; padding:10px;}
+
+</style>
+
+
+</head>
+<body>
+	<button onclick="getPlaySpeed()" type="button">What is the playback speed?</button>
+
+	  <div id="video_player_box">
+	  	<video controls ="controls" id="myVideo">
+		  	<source src="dev.webm" type="video/mp4">
+		  	<track src="sub.vtt" kind="subtitles" srclang="en" label="English">
+		  	<track src="dev.vtt" label="English subtitles"  kind="subtitles" srclang="en" default>  	
+	  	</video>
+	  
+	  	<div id="video_controls_bar">
+    		<button id="playpausebtn" onclick="playPause(this,'myVideo')">Pause</button>
+			<select id="d1" onchange="myfunc(this.value)"  >
+               <option value=".5" >.5X</option>
+               <option value="1"  selected="selected">1X</option>
+               <option value="2" >2X</option>
+            </select>
+  		</div>
+	  </div>
+<script>
+var vid = document.getElementById("myVideo");
+ function playPause(btn,vid){
+	 var vid = document.getElementById(vid);
+	if(vid.paused){
+		vid.play();
+		btn.innerHTML = "Pause";
+	} else {
+		vid.pause();
+		btn.innerHTML = "Play";
+	}
+}
+	
+function getPlaySpeed() { 
+  alert(vid.playbackRate);
+} 
+function myfunc(v) {
+//To Do
+  switch(v) {
+    case ".5":
+      vid.playbackRate=0.5;
+      break;
+    case "1":
+      //Do somthing
+      vid.playbackRate=1.0;
+      
+      break;case "1":
+      //Do somthing
+      vid.playbackRate=1.0;
+      
+      break;
+    
+     case "2":
+      //Do somthing
+      vid.playbackRate=2.0;
+      
+      break;
+    
+      
+    }
+  }
+
+
+
+</script>
+  
+	
+</body>
+</html>
+	  
+		  
